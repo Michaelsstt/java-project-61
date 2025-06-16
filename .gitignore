@@ -16,3 +16,9 @@ bin
 kls_database.db
 
 app.iml
+
+# Исключения для Gradle Wrapper (должны быть закоммичены)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
+!gradlew
+!gradlew.bat
