@@ -22,7 +22,7 @@ public class Engine {
 
             if (!answer.equals(correctAnswer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'");
-                System.out.println("Let's try again, " + Cli.getUserName() + "1");
+                System.out.println("Let's try again, " + Cli.getUserName() + "!");
                 return;
             }
             System.out.println("Correct!");
