@@ -23,7 +23,7 @@ public class Calc {
             gameData[i][0] = question;
             gameData[i][1] = correctAnswer;
         }
-        Engine.runGame("What is the result of expression?", gameData);
+        Engine.runGame("What is the result of the expression?", gameData);
     }
 
     private static String calculate(int num1, int num2, char operator) {
