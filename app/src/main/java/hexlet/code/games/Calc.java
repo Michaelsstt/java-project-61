@@ -7,13 +7,14 @@ import java.util.Random;
 public class Calc {
     private static final Random RANDOM = new Random();
     private static final char[] OPERATORS = {'+', '-', '*'};
+    private static final int MAX_OPERAND_VALUE = 100;
 
     public static void run() {
         String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int num1 = RANDOM.nextInt(100);
-            int num2 = RANDOM.nextInt(100);
+            int num1 = RANDOM.nextInt(MAX_OPERAND_VALUE);
+            int num2 = RANDOM.nextInt(MAX_OPERAND_VALUE);
 
             char operator = OPERATORS[RANDOM.nextInt(OPERATORS.length)];
 
