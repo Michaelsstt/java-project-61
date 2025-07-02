@@ -1,11 +1,8 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
-
-import java.util.Random;
+import hexlet.code.Utils;
 
 public class Calc {
-    private static final Random RANDOM = new Random();
     private static final char[] OPERATORS = {'+', '-', '*'};
     private static final int MAX_OPERAND_VALUE = 100;
 
@@ -13,10 +10,10 @@ public class Calc {
         String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int num1 = RANDOM.nextInt(MAX_OPERAND_VALUE);
-            int num2 = RANDOM.nextInt(MAX_OPERAND_VALUE);
+            int num1 = Utils.generateNumber(0, MAX_OPERAND_VALUE);
+            int num2 = Utils.generateNumber(0, MAX_OPERAND_VALUE);
 
-            char operator = OPERATORS[RANDOM.nextInt(OPERATORS.length)];
+            char operator = OPERATORS[Utils.generateNumber(0, OPERATORS.length - 1)];
 
             String question = num1 + " " + operator + " " + num2;
             String correctAnswer = calculate(num1, num2, operator);

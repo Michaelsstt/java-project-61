@@ -8,13 +8,16 @@ public class Engine {
     public static void runGame(String gameDescription, String[][] gameData) {
         Scanner scanner = new Scanner(System.in);
 
-        Cli.greetings();
+        System.out.println("Welcome to the game!");
+        System.out.print("May I have your name? ");
+        String userName = scanner.nextLine();
+        System.out.println("Hello, " + userName + "!");
 
         System.out.println(gameDescription);
 
-        for (int i = 0; i < ROUNDS_COUNT; i++) {
-            String question = gameData[i][0];
-            String correctAnswer = gameData[i][1];
+        for (String[] roundData : gameData) {
+            String question = roundData[0];
+            String correctAnswer = roundData[1];
 
             System.out.println("Question: " + question);
             System.out.print("Your answer: ");
@@ -22,11 +25,14 @@ public class Engine {
 
             if (!answer.equals(correctAnswer)) {
                 System.out.println("'" + answer + "' is wrong answer ;(. Correct answer was '" + correctAnswer + "'");
-                System.out.println("Let's try again, " + Cli.getUserName() + "!");
+                System.out.println("Let's try again, " + userName + "!");
                 return;
             }
             System.out.println("Correct!");
         }
-        System.out.println("Congratulations, " + Cli.getUserName() + "!");
+        System.out.println("Congratulations, " + userName + "!");
+    }
+
+    public static class Utils {
     }
 }

@@ -1,3 +1,7 @@
+# Brain Games
+
+Вашему вниманию представлен набор из пяти консольных игр!
+
 # Automatic tests
 
 After completing all the steps in the project, automatic tests will become available to you. Tests are run on each commit - once all tasks in the Hexlet interface are completed, make a commit, and the tests will run automatically.
@@ -14,6 +18,16 @@ The hexlet-check.yml file is responsible for running these tests - do not delete
 
 
 A project template with only the bare minimum of structure. A good starting point for a small project.
+
+## Доступные игры
+
+1. **Even** - Определение чётных чисел
+2. **Calc** - Арифметические выражения
+3. **GCD** - Наибольший общий делитель
+4. **Progression** - Арифметические прогрессии
+5. **Prime** - Простые числа
+
+## Запуск проекта
 
 ## Start
 
@@ -62,3 +76,14 @@ This repository is created and maintained by the team and the community of Hexle
 See most active contributors on [hexlet-friends](https://friends.hexlet.io/).
 
 ![ScreenshotGames 2025-06-17 173311.png](../../../Desktop/ScreenshotGames%202025-06-17%20173311.png)
+
+### Требования
+
+- Установленный JDK 17 или новее
+- Установленный Gradle
+
+### Инструкция по запуску:
+- git clone https://github.com/Michaelsstt/java-project-61.git
+- cd java-project-61
+- gradle build
+- gradle run

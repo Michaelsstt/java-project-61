@@ -1,6 +1,7 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 import java.util.Random;
 
@@ -15,10 +16,10 @@ public class Progression {
         Random random = new Random();
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
-            int length = MIN_LENGTH + random.nextInt(MAX_LENGTH - MIN_LENGTH + 1);
-            int start = random.nextInt(MAX_START) + 1;
-            int step = random.nextInt(MAX_STEP) + 1;
-            int hiddenIndex = random.nextInt(length);
+            int length = Utils.generateNumber(MIN_LENGTH, MAX_LENGTH);
+            int start = Utils.generateNumber(1, MAX_START);
+            int step = Utils.generateNumber(1, MAX_STEP);
+            int hiddenIndex = Utils.generateNumber(0, length - 1);
 
             String[] progression = generateProgression(start, step, length, hiddenIndex);
             String question = String.join(" ", progression);
