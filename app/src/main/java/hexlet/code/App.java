@@ -12,7 +12,9 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        if (System.getenv("TEST_MODE") != null) {
+        boolean isTestMode = System.getenv("TEST_MODE") != null;
+
+        if (isTestMode) {
             Progression.run();
             System.exit(0);
             return;
