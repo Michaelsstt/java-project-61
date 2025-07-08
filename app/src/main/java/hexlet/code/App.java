@@ -14,6 +14,11 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
+        if (args.length > 0 && args[0].equals("test")) {
+            Progression.run();
+            return;
+        }
+
         while (true) {
             System.out.println("Please enter the game number and press Enter.");
             System.out.println("1 - Greet");
