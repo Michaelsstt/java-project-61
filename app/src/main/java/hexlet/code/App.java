@@ -14,7 +14,7 @@ public class App {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
 
-        if (args.length > 0 && args[0].equals("test")) {
+        if (System.getenv("TEST_MODE") != null) {
             Progression.run();
             return;
         }
