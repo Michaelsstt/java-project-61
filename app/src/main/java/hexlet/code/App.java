@@ -12,12 +12,39 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
-
-        if (System.getenv("TEST_MODE") != null) {
-            Progression.run();
-            return;
+        if (args.length == 0) {
+            // Режим обычного взаимодействия с пользователем
+            runInteractive();
+        } else {
+            // Режим запуска конкретной игры, например: java -jar app.jar greet
+            String game = args[0];
+            switch (game) {
+                case "greet":
+                    Cli.greet();
+                    break;
+                case "even":
+                    Even.run();
+                    break;
+                case "calc":
+                    Calc.run();
+                    break;
+                case "gcd":
+                    GCD.run();
+                    break;
+                case "progression":
+                    Progression.run();
+                    break;
+                case "prime":
+                    Prime.run();
+                    break;
+                default:
+                    System.out.println("Unknown game: " + game);
+            }
         }
+    }
+
+    private static void runInteractive() {
+        Scanner scanner = new Scanner(System.in);
 
         while (true) {
             System.out.println("Please enter the game number and press Enter.");
