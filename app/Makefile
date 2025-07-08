@@ -1,8 +1,9 @@
 # Makefile для проекта
 
+.PHONY: build run-dist
 
+build:
+	./gradlew build
 
-.PHONY: run-dist
-
-run-dist:
-    ./build/install/app/bin/app
+run-dist: build
+	./build/install/app/bin/app

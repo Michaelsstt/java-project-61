@@ -1,9 +1,7 @@
 package hexlet.code.games;
-
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.Random;
 
 public class Progression {
     private static final int MIN_LENGTH = 5;
@@ -13,7 +11,6 @@ public class Progression {
 
     public static void run() {
         String[][] gameData = new String[Engine.ROUNDS_COUNT][2];
-        Random random = new Random();
 
         for (int i = 0; i < Engine.ROUNDS_COUNT; i++) {
             int length = Utils.generateNumber(MIN_LENGTH, MAX_LENGTH);
@@ -21,9 +18,9 @@ public class Progression {
             int step = Utils.generateNumber(1, MAX_STEP);
             int hiddenIndex = Utils.generateNumber(0, length - 1);
 
-            String[] progression = generateProgression(start, step, length, hiddenIndex);
-            String question = String.join(" ", progression);
-            int correctAnswer = start + hiddenIndex * step;
+            int[] progression = generateProgression(start, step, length);
+            String question = createQuestion(progression, hiddenIndex);
+            int correctAnswer = progression[hiddenIndex];
 
             gameData[i][0] = question;
             gameData[i][1] = String.valueOf(correctAnswer);
@@ -33,15 +30,19 @@ public class Progression {
         Engine.runGame(description, gameData);
     }
 
-    private static String[] generateProgression(int start, int step, int length, int hiddenIndex) {
-        String[] progression = new String[length];
+    private static int[] generateProgression(int start, int step, int length) {
+        int[] progression = new int[length];
         for (int i = 0; i < length; i++) {
-            if (i == hiddenIndex) {
-                progression[i] = "..";
-            } else {
-                progression[i] = String.valueOf(start + i * step);
-            }
+            progression[i] = start + i * step;
         }
         return progression;
+    }
+
+    private static String createQuestion(int[] progression, int hiddenIndex) {
+        String[] questionElements = new String[progression.length];
+        for (int i = 0; i < progression.length; i++) {
+            questionElements[i] = (i == hiddenIndex) ? ".." : String.valueOf(progression[i]);
+        }
+        return String.join(" ", questionElements);
     }
 }
