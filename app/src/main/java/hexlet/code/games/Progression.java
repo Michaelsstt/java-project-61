@@ -18,31 +18,23 @@ public class Progression {
             int step = Utils.generateNumber(1, MAX_STEP);
             int hiddenIndex = Utils.generateNumber(0, length - 1);
 
-            int[] progression = generateProgression(start, step, length);
-            String question = createQuestion(progression, hiddenIndex);
-            int correctAnswer = progression[hiddenIndex];
+            String[] progression = generateProgression(start, step, length);
+            String answer = progression[hiddenIndex];  // Сохраняем правильный ответ
+            progression[hiddenIndex] = "..";
 
-            gameData[i][0] = question;
-            gameData[i][1] = String.valueOf(correctAnswer);
+            gameData[i][0] = String.join(" ", progression);  // Вопрос - прогрессия с ".."
+            gameData[i][1] = answer;
         }
 
         String description = "What number is missing in the progression?";
         Engine.runGame(description, gameData);
     }
 
-    private static int[] generateProgression(int start, int step, int length) {
-        int[] progression = new int[length];
+    private static String[] generateProgression(int start, int step, int length) {
+        String[] progression = new String[length];
         for (int i = 0; i < length; i++) {
-            progression[i] = start + i * step;
+            progression[i] = String.valueOf(start + i * step);
         }
         return progression;
-    }
-
-    private static String createQuestion(int[] progression, int hiddenIndex) {
-        String[] questionElements = new String[progression.length];
-        for (int i = 0; i < progression.length; i++) {
-            questionElements[i] = (i == hiddenIndex) ? ".." : String.valueOf(progression[i]);
-        }
-        return String.join(" ", questionElements);
     }
 }
